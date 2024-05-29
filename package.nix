@@ -26,7 +26,11 @@ rustPlatform.buildRustPackage rec {
 
   cargoLock = {
     lockFile = "${pixi-source}/Cargo.lock";
-    allowBuiltinFetchGit = true;
+    outputHashes = {
+        "async_zip-0.0.17" = "sha256-Q5fMDJrQtob54CTII3+SXHeozy5S5s3iLOzntevdGOs=";
+        "cache-key-0.0.1" = "sha256-XsBTfe2+J5CGdjYZjhgxiP20OA7+VTCvD9JniLOjhKs=";
+        "pubgrub-0.2.1" = "sha256-sqC7R2mtqymYFULDW0wSbM/MKCZc8rP7Yy/gaQpjYEI=";
+      };
   };
 
   nativeBuildInputs = [

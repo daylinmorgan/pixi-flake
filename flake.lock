@@ -19,16 +19,16 @@
     "pixi-source": {
       "flake": false,
       "locked": {
-        "lastModified": 1716812397,
-        "narHash": "sha256-uLlScqcTU9nnBQiufRo+eee1TNyP5R52oI1jUaH6L1M=",
+        "lastModified": 1718205766,
+        "narHash": "sha256-24sahgBaWlbbOfaqyMJiow3S1KwMsgo0hYu7Z5WpMlE=",
         "owner": "prefix-dev",
         "repo": "pixi",
-        "rev": "6b194e82ee556b1169a7120966471555ef0760fc",
+        "rev": "234472ae4ee80ef12f659cfc85f247f78974f293",
         "type": "github"
       },
       "original": {
         "owner": "prefix-dev",
-        "ref": "v0.23.0",
+        "ref": "v0.24.1",
         "repo": "pixi",
         "type": "github"
       }

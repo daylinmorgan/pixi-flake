@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    pixi-source.url = "github:prefix-dev/pixi/v0.27.0";
+    pixi-source.url = "github:prefix-dev/pixi/v0.27.1";
     pixi-source.flake = false;
   };
 

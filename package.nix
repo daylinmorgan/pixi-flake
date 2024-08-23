@@ -16,23 +16,23 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "pixi";
-  version = "0.27.1";
+  version = "0.28.0";
 
   src = fetchFromGitHub {
     owner = "prefix-dev";
     repo = "pixi";
     rev = "v${version}";
-    hash = "sha256-37zVmPKAWCw58xA5lUb+WVAW8rRwPF7DZVXUZ8bwP5E=";
+    hash = "sha256-4evZ1xdxbAVzjs1Rb580lCN4tuW+FZF7Vnro2PSKqT8=";
   };
 
   cargoLock = {
-    lockFile = "${pixi-source}/Cargo.lock";
+    lockFile = "${src}/Cargo.lock";
     outputHashes = {
-      "async_zip-0.0.17" = "sha256-Q5fMDJrQtob54CTII3+SXHeozy5S5s3iLOzntevdGOs=";
-      "cache-key-0.0.1" = "sha256-tg3zRakZsnf7xBjs5tSlkmhkhHp5HGs6dwrTmdZBTl4=";
-      "pubgrub-0.2.1" = "sha256-6tr+HATYSn1A1uVJwmz40S4yLDOJlX8vEokOOtdFG0M=";
+      "async_zip-0.0.17" = "sha256-3k9rc4yHWhqsCUJ17K55F8aQoCKdVamrWAn6IDWo3Ss=";
+      "cache-key-0.0.1" = "sha256-3FSA+JsAbLzS3ONoLciDzpyCsO6Em8lNVYR43WiK1xs=";
+      "pubgrub-0.2.1" = "sha256-yhZm35Dyl6gcBTxKvsxJXv1GTOuMCDknnSTgGgKD488=";
+      "reqwest-middleware-0.3.2" = "sha256-OiC8Kg+F2eKy7YNuLtgYPi95DrbxLvsIKrKEeyuzQTo=";
     };
-
   };
 
   nativeBuildInputs = [

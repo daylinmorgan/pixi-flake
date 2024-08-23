@@ -10,7 +10,6 @@
   darwin,
   testers,
   pixi,
-  pixi-source,
   ...
 }:
 

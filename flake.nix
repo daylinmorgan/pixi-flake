@@ -1,17 +1,14 @@
 {
-  description = "fast moving flake for nixos";
+  description = "faster moving pixi flake for nixos";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    pixi-source.url = "github:prefix-dev/pixi/v0.27.1";
-    pixi-source.flake = false;
   };
 
   outputs =
     {
       self,
       nixpkgs,
-      pixi-source,
     }:
     let
       inherit (nixpkgs.lib) genAttrs;
@@ -35,7 +32,7 @@
     in
     {
       overlays = {
-        default = (final: prev: { pixi = final.callPackage ./package.nix { inherit pixi-source; }; });
+        default = (final: prev: { pixi = final.callPackage ./package.nix {}; });
       };
 
       packages = forAllSystems (pkgs: {

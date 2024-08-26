@@ -15,22 +15,22 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "pixi";
-  version = "0.28.0";
+  version = "0.28.1";
 
   src = fetchFromGitHub {
     owner = "prefix-dev";
     repo = "pixi";
     rev = "v${version}";
-    hash = "sha256-4evZ1xdxbAVzjs1Rb580lCN4tuW+FZF7Vnro2PSKqT8=";
+    hash = "sha256-lebp5iFrZerD1SzU7LOdJHQM1gH6+XQVsEBX83U1LU4=";
   };
 
   cargoLock = {
     lockFile = "${src}/Cargo.lock";
     outputHashes = {
       "async_zip-0.0.17" = "sha256-3k9rc4yHWhqsCUJ17K55F8aQoCKdVamrWAn6IDWo3Ss=";
-      "cache-key-0.0.1" = "sha256-3FSA+JsAbLzS3ONoLciDzpyCsO6Em8lNVYR43WiK1xs=";
-      "pubgrub-0.2.1" = "sha256-yhZm35Dyl6gcBTxKvsxJXv1GTOuMCDknnSTgGgKD488=";
-      "reqwest-middleware-0.3.2" = "sha256-OiC8Kg+F2eKy7YNuLtgYPi95DrbxLvsIKrKEeyuzQTo=";
+      "cache-key-0.0.1" = "sha256-BPC60mM/31Xl7qD9pa3CGDwFd7uG3LPAPf/f6tOamc0=";
+      "pubgrub-0.2.1" = "sha256-OVR4ioUSbraMZYglIGzBA0KQ+XZY0P0+fw68v8/e9sQ=";
+      "reqwest-middleware-0.3.3" = "sha256-csQN7jZTifliSTsOm6YrjPVgsXBOfelY7LkHD1HkNGQ=";
     };
   };
 

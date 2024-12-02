@@ -15,13 +15,13 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "pixi";
-  version = "0.36.0";
+  version = "0.39.0";
 
   src = fetchFromGitHub {
     owner = "prefix-dev";
     repo = "pixi";
     rev = "v${version}";
-    hash = "sha256-xPEnOxysUHUIa2C3MqAeeaYgAf5TQQytq2LxyzWYaMQ=";
+    hash = "sha256-q6kNJrUxKx7lnyfnNdQF7FyyJcFDD1gRu8804He0L2E=";
   };
 
   cargoLock = {
@@ -31,6 +31,7 @@ rustPlatform.buildRustPackage rec {
       # lockFile = "${./Cargo.lock}";
       outputHashes = {
         "async_zip-0.0.17" = "sha256-3k9rc4yHWhqsCUJ17K55F8aQoCKdVamrWAn6IDWo3Ss=";
+        "file_url-0.1.7" = "sha256-Nw05zzysIe3WahruW3fpVB5YLDncB8xmTMYUpdD2mDA=";
         "pubgrub-0.2.1" = "sha256-8TrOQ6fYJrYgFNuqiqnGztnHOqFIEDi2MFZEBA+oks4=";
         "reqwest-middleware-0.3.3" = "sha256-KjyXB65a7SAfwmxokH2PQFFcJc6io0xuIBQ/yZELJzM=";
         "tl-0.7.8" = "sha256-F06zVeSZA4adT6AzLzz1i9uxpI1b8P1h+05fFfjm3GQ=";

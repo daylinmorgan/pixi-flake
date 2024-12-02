@@ -25,10 +25,7 @@ rustPlatform.buildRustPackage rec {
   };
 
   cargoLock = {
-      # multiple version of "version-ranges" in Cargo.lock
-      # I removed the source from crates.io
-      lockFileContents = builtins.readFile ./Cargo.lock;
-      # lockFile = "${./Cargo.lock}";
+      lockFile = ./Cargo.lock;
       outputHashes = {
         "async_zip-0.0.17" = "sha256-3k9rc4yHWhqsCUJ17K55F8aQoCKdVamrWAn6IDWo3Ss=";
         "file_url-0.1.7" = "sha256-Nw05zzysIe3WahruW3fpVB5YLDncB8xmTMYUpdD2mDA=";
@@ -39,6 +36,11 @@ rustPlatform.buildRustPackage rec {
       };
     };
 
+  # The following packages are duplicated which is not supported by buildRustPackage:
+  # - version-ranges
+  # - rattler_cache
+  # - simple_spawn_blocking
+  
   postPatch = ''
     cp ${./Cargo.lock} Cargo.lock
   '';
@@ -52,16 +54,18 @@ rustPlatform.buildRustPackage rec {
     [
       libgit2
       openssl
-    ]
-    ++ lib.optionals stdenv.isDarwin (
-      with darwin.apple_sdk_11_0.frameworks;
-      [
-        CoreFoundation
-        IOKit
-        SystemConfiguration
-        Security
-      ]
-    );
+    ];
+
+    # upstream nixpkgs version removed this code?
+    # ++ lib.optionals stdenv.isDarwin (
+    #   with darwin.apple_sdk_11_0.frameworks;
+    #   [
+    #     CoreFoundation
+    #     IOKit
+    #     SystemConfiguration
+    #     Security
+    #   ]
+    # );
 
   env = {
     LIBGIT2_NO_VENDOR = 1;

@@ -23,46 +23,31 @@ rustPlatform.buildRustPackage rec {
   };
 
   cargoLock = {
-      # lockFile = ./Cargo.lock;
-      lockFile = "${src}/Cargo.lock";
-      outputHashes = {
-        "async_zip-0.0.17" = "sha256-VfQg2ZY5F2cFoYQZrtf2DHj0lWgivZtFaFJKZ4oyYdo=";
-        "pubgrub-0.2.1" = "sha256-zusQxYdoNnriUn8JCk5TAW/nQG7fwxksz0GBKEgEHKc=";
-        "tl-0.7.8" = "sha256-F06zVeSZA4adT6AzLzz1i9uxpI1b8P1h+05fFfjm3GQ=";
-        "uv-auth-0.0.1" = "sha256-iiIbSya+SUM7Xk+lV7h7Zyb1WMvc1IAHxCAylWmKaKU=";
-      };
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "async_zip-0.0.17" = "sha256-VfQg2ZY5F2cFoYQZrtf2DHj0lWgivZtFaFJKZ4oyYdo=";
+      "pubgrub-0.2.1" = "sha256-zusQxYdoNnriUn8JCk5TAW/nQG7fwxksz0GBKEgEHKc=";
+      "tl-0.7.8" = "sha256-F06zVeSZA4adT6AzLzz1i9uxpI1b8P1h+05fFfjm3GQ=";
+      "uv-auth-0.0.1" = "sha256-iiIbSya+SUM7Xk+lV7h7Zyb1WMvc1IAHxCAylWmKaKU=";
     };
+  };
 
   # The following packages are duplicated which is not supported by buildRustPackage:
   # - version-ranges
-  # - rattler_cache
-  # - simple_spawn_blocking
 
-  # postPatch = ''
-  #   cp ${./Cargo.lock} Cargo.lock
-  # '';
-  #
+  postPatch = ''
+    cp ${./Cargo.lock} Cargo.lock
+  '';
+
   nativeBuildInputs = [
     pkg-config
     installShellFiles
   ];
 
-  buildInputs =
-    [
-      libgit2
-      openssl
-    ];
-
-    # upstream nixpkgs version removed this code?
-    # ++ lib.optionals stdenv.isDarwin (
-    #   with darwin.apple_sdk_11_0.frameworks;
-    #   [
-    #     CoreFoundation
-    #     IOKit
-    #     SystemConfiguration
-    #     Security
-    #   ]
-    # );
+  buildInputs = [
+    libgit2
+    openssl
+  ];
 
   env = {
     LIBGIT2_NO_VENDOR = 1;

@@ -32,7 +32,7 @@
     in
     {
       overlays = {
-        default = (final: prev: { pixi = final.callPackage ./package.nix {}; });
+        default = (final: prev: { pixi = final.callPackage ./package.nix { }; });
       };
 
       packages = forAllSystems (pkgs: {

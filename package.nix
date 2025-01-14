@@ -23,7 +23,7 @@ rustPlatform.buildRustPackage rec {
   };
 
   cargoLock = {
-    lockFile = ./Cargo.lock;
+    lockFile = "${src}/Cargo.lock";
     outputHashes = {
       "async_zip-0.0.17" = "sha256-VfQg2ZY5F2cFoYQZrtf2DHj0lWgivZtFaFJKZ4oyYdo=";
       "pubgrub-0.2.1" = "sha256-zusQxYdoNnriUn8JCk5TAW/nQG7fwxksz0GBKEgEHKc=";
@@ -34,10 +34,10 @@ rustPlatform.buildRustPackage rec {
 
   # The following packages are duplicated which is not supported by buildRustPackage:
   # - version-ranges
-
-  postPatch = ''
-    cp ${./Cargo.lock} Cargo.lock
-  '';
+  #
+  # postPatch = ''
+  #   cp ${./Cargo.lock} Cargo.lock
+  # '';
 
   nativeBuildInputs = [
     pkg-config
